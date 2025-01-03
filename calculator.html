@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <title>calculator</title>
+        <style>
+            .main{
+                text-align:center;
+                width:30%;
+                margin: 50px 0px 0px 400px;
+                padding: 20px;
+                border: 1px solid black; 
+            }
+            input
+            {
+                margin: 10px;
+                padding: 10px;
+            }
+            button
+            {
+                margin: 10px;
+                padding: 10px;
+                background-color: gray;
+            }
+
+
+        </style>
+        </head>
+        <body>
+        <div class="main">
+            <h1>calculator</h1>
+            <input type="text" id="first" placeholder="first number"><br>
+            <input type="text"id="second" placeholder="second number"><br> 
+            
+            <button id="add" onclick="Add()">+</button>
+            <button id="sub" onclick="Sub()">-</button>
+
+            <button id="mul" onclick="Mul()">*</button>
+
+            <button id="div" onclick="Div()">/</button>
+            <input type="text" id="ans" placeholder="Answer"><br>
+
+        </div>
+        <script>
+            function Add()
+            {
+                var first= document.getElementById("first").value;
+                var second=document.getElementById("second").value;
+                var result= Number(first) + Number(second);
+                document.getElementById("ans").value=result;
+                
+            }
+            function Sub()
+            {
+                var first=document.getElementById("first").value;
+                var second=document.getElementById("second").value;
+                var result= Number(first)- Number(second);
+                document.getElementById("ans").value=result;
+            }
+            function Mul()
+            {
+                var first=document.getElementById("first").value;
+                var second=document.getElementById("second").value;
+                var result=Number(first)*Number(second);
+                document.getElementById("ans").value=result; 
+            }
+            function Div()
+            {
+                var first=document.getElementById("first").value;
+                var second=document.getElementById("second").value;
+                var result=Number(first)/Number(second);
+                document.getElementById("ans").value=result;
+            }
+
+        </script>
+            
+        </body>
+
+        </html>

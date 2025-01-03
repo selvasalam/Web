@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>student registration</title>
+</head>
+<body>
+<h2>Student Registration Form</h2>
+<form action="/submit" method="POST">
+<table>
+<label for="MiddleName">First Name:</label>
+<input type="text" id="FirstName" name="FirstName" required><br><br>
+
+<label for="MiddleName">Middle Name:</label>
+<input type="text" id="MiddleName" name="MidleName" required><br><br>
+
+<label for="LastName">Last Name:</label>
+<input type="text" id="LastName" name="LastName" required><br><br>
+<tr><td>Date of birth</td>
+<td><input type="date"></td></tr>
+<tr><td>Gender</td>
+<td>Male<input type="radio" name="gen">Female<input type="radio" name="gen">
+</td></tr>
+<tr><td>E-mail</td>
+<td><input type="email"></td></tr>
+<tr><td>Blood Group</td>
+<td><select>
+<option>...select...</option>
+<option>A+</option>
+<option>B+</option>
+</select></td></tr>
+<tr><td>Father's Name:</td>
+<td><input type="text"></td></tr>
+<tr><td>Mothers's Name:</td>
+<td><input type="text"></td></tr>
+<tr><td>Address:</td>
+<td><textarea id="message" name="message" rows="3" cols="50"></textarea><br></tr>
+</table>
+<button>RESET</button><input type="submit" value="SUBMIT">
+</form></center>
+</body>
+</html>
+
+
+

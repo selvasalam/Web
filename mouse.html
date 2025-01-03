@@ -1,0 +1,73 @@
+<html>
+<head>
+    <title>Mouse Hover</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #f0f0f0;
+        }
+        #originalContent {
+            width: 300px;
+            height: 300px;
+            margin: auto;
+            background-color: lightblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            cursor: pointer;
+            border: 2px solid #007BFF;
+        }
+        #newContent {
+            display: none; /* Hide the new content initially */
+            margin-top: 20px;
+            font-size: 18px;
+            color: #007BFF;
+        }
+        #newImage {
+            width: 100%;
+            max-width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Original content that user can hover over -->
+    <div id="originalContent">
+        Hover over me!
+    </div>
+
+    <!-- New content to show on hover -->
+    <div id="newContent">
+        <img id="newImage" src="k.jpg" alt="New Image">
+        <p id="newText"></p>
+    </div>
+
+    <script>
+        // Get references to the content elements
+        const originalContent = document.getElementById("originalContent");
+        const newContent = document.getElementById("newContent");
+        const newImage = document.getElementById("newImage");
+        const newText = document.getElementById("newText");
+
+        // The new image and text to display on hover
+        const hoverImageSrc = "k.jpg"; // Replace with your own image URL
+        const hoverText = "You hovered over the content! Here's a new image.";
+
+        // Add mouseover event listener
+        originalContent.addEventListener("mouseover", function() {
+            newImage.src = hoverImageSrc;
+            newText.textContent = hoverText;
+
+            // Show the new content
+            newContent.style.display = "block";
+        });
+
+        // Add mouseout event listener to hide the new content when the mouse leaves
+        originalContent.addEventListener("mouseout", function() {
+            newContent.style.display = "none"; // Hide the new content
+        });
+    </script>
+</body>
+</html>

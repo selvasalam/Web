@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>
+</title>
+</head>
+<body>
+<h1 id="h">Welcome to javascript</u></h1>
+<p>JavaScript is a high-level, interpreted programming language
+ that is primarily used to create dynamic and interactive effects within web browsers.
+ It is a core technology alongside HTML and CSS, forming the foundation of modern web development.
+ While HTML structures the content of a webpage and CSS handles the layout and presentation, JavaScript
+ makes the page interactive and responsive to user input, events, and other dynamic data changes.
+ JavaScript is a versatile, dynamic, and essential language for web development. It plays a critical role in
+ making the web interactive, user-friendly, and efficient. With constant improvements, new libraries, and frameworks,
+ JavaScript continues to be a dominant force in both frontend and backend development.</p>
+<hr>
+change your webpage background to:
+<button onclick="changeback('lightblue')">blue</button>
+<button onclick="changeback('lightgreen')">green</button>
+<button onclick="changeback('lightpink')">pink</button>
+<br>
+<br>
+ckange your heading background to:
+<button onclick="changehead('red')">red</button>
+<button onclick="changehead('blue')">blue</button>
+<button onclick="changehead('green')">green</button>
+<script>
+function changeback(color)
+{
+document.body.style.background=color;
+}
+function changehead(color)
+{
+var c=document.getElementById("h");
+c.style.background=color;
+}
+</script>
+</body>
+</html>
+
+
+
