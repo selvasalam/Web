@@ -1,0 +1,131 @@
+<html>
+<head>
+<title>simple online exam</title>
+<style>
+body{
+    font-family:arial,sans-serif;
+    margin:0;
+    padding:0;
+    background-color:#f4f4f4;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+ }
+  
+.exam-container{
+   background-color:white;
+   padding:20px;
+   border-radius:10px;
+   box-shadow:0 0 15px rgba(0,0,0,0.1);
+   width:300px;
+}
+h1{
+   text-align:center;
+}
+.question{
+   margin-bottom:20px;
+}
+.question label{
+   display:block;
+   margin-bottom:5px;
+}
+button{
+   width:100%;
+   padding:10px;
+   background-color:#28a745;
+   color:white;
+   border:none;
+   border-radius:5px;
+   cursor:pointer;
+}
+button:disabled{
+   background-color:#ccc;
+}
+#result{
+   text-align:center;
+   margin-top:20px;
+}
+</style>
+</head>
+<body>
+<div class="exam-container">
+    <h1>Online Exam</h1>
+    <div id="question-container"></div>
+    <button id="submit-button" onclick="submitExam()">Submit Exam</button>
+    <div id="result"></div>
+</div>
+
+<script>
+// Define the questions and correct answers
+const questions = [
+    {
+        question: "What is the capital of France?", 
+        options: ["Berlin", "Madrid", "Paris", "Rome"], 
+        answer: "Paris"
+    },
+    {
+        question: "Which programming language is primarily used for web development?",
+        options: ["Python", "JavaScript", "Java", "C++"],
+        answer :"JavaScript"
+    },
+    {
+        question: "What is the largest planet in our solar system",
+        options: ["Earth", "Mars", "Jupiter", "Saturn"],
+        answer: "Jupiter"
+    }
+];
+let currentQuestionIndex = 0;
+let score = 0;
+
+// Function to load the current question
+function loadQuestion() {
+   const questionContainer =document.getElementById('question-container');
+   const question= questions [currentQuestionIndex];
+
+   questionContainer.innerHTML =`
+       <div class="question">
+           <p>${question.question}</p>
+           ${question.options.map((option, index) =>`
+               <label>
+                   <input type="radio" name="answer" value="${option}">
+                   ${option} 
+               </label>
+           `).join('')}
+      </div>
+  `;
+}
+
+// Function to handle the exam submission
+function submitExam() {
+   const selectedAnswer = document.querySelector('input[name="answer"]:checked');
+   if (selectedAnswer) {
+   const answer = selectedAnswer.value;
+   const correctAnswer = questions[currentQuestionIndex].answer;
+
+   if (answer === correctAnswer) {
+        score++;
+    }
+
+    currentQuestionIndex++;
+
+    if (currentQuestionIndex < questions.length) {
+       loadQuestion();
+   } else {
+       showResult();
+   }
+  }
+}
+
+// Function to display the result 
+function showResult() {
+    const resultContainer = document.getElementById('result');
+    resultContainer.innerHTML = `<h2>Your score: ${score}/${questions.length}</h2>`;
+    document.getElementById('submit-button').disabled = true; // Disable the submit button after exam is finished
+}
+
+// Load the first question
+loadQuestion();
+</script>
+</body>
+</html>
